@@ -1,10 +1,10 @@
-# LWin key remapper
+# left windows key remapper
 
-In short, this program maps the single press of `LWin` to `LWin + F23` while preserving the key to be a modifier.
+In short, this program maps the single press of `LWin` to `LWin + F23` while preserving the key as a modifier.
 
 This is a workaround to address https://github.com/microsoft/PowerToys/issues/5571.
 
-When `Win` is pressed alone, the start menu is activated. By remapping only sequential `LWin` press and release events to `LWin + F23`, one can suppress the action and use the key for other purposes, while preserving the key as a modifier.  If there is no allocated actions to this combination, this is as good as supressing the single press of the key.
+When `Win` is pressed alone, the start menu is activated. By remapping only sequential `LWin` press and release events to `LWin + F23`, one can suppress the action and use the key for other purposes, while preserving the key as a modifier. If there is no actions allocated to this combination, this is as good as supressing the single press of the key.
 
 The Python file shows a pilot test using the keyboard lib (mapping `LWin` to `LWin + F12`). Due to unknown reasons, this approach may have a chance to miss (fail to catch the keyboard events) under certain circumstances.
 

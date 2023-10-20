@@ -1,7 +1,7 @@
 // #include <iostream>
 #include <Windows.h>
 
-DWORD LastPressVkCode;
+DWORD lastPressVkCode;
 
 HHOOK keyboardHook = NULL;
 LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
@@ -9,9 +9,9 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
     KBDLLHOOKSTRUCT* kbStruct = (KBDLLHOOKSTRUCT*)lParam;
     if (wParam == WM_KEYDOWN) {
       // std::cout << "Key Pressed: " << kbStruct->vkCode << std::endl;
-      LastPressVkCode = kbStruct->vkCode;
+      lastPressVkCode = kbStruct->vkCode;
     }
-    else if (kbStruct->vkCode == VK_LWIN && LastPressVkCode == VK_LWIN) {
+    else if (kbStruct->vkCode == VK_LWIN && lastPressVkCode == VK_LWIN) {
       keybd_event(VK_F23, 0, 0, 0);
       keybd_event(VK_F23, 0, KEYEVENTF_KEYUP, 0);
     }
