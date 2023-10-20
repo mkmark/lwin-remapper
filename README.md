@@ -6,9 +6,11 @@ This is a workaround to address https://github.com/microsoft/PowerToys/issues/55
 
 When `Win` is pressed alone, the start menu is activated. By remapping only sequential `LWin` press and release events to `LWin + F23`, one can suppress the action and use the key for other purposes, while preserving the key as a modifier. If there is no actions allocated to this combination, this is as good as supressing the single press of the key.
 
+The AHK file shows a pilot test using AutoHotkey, but any `LWin` combination will trigger `LWin + F23` first.
+
 The Python file shows a pilot test using the keyboard lib (mapping `LWin` to `LWin + F12`). Due to unknown reasons, this approach may have a chance to miss (fail to catch the keyboard events) under certain circumstances.
 
-The C++ approach does not have this issue.
+The C++ approach does not have aforementioned issues.
 
 ## notes on using PowerToys Run
 
@@ -25,3 +27,7 @@ To change the activation key combination of PowerToys Run, one can use for examp
     },
 ```
 where code 134 is `F23`, see https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes.
+
+## knwon limits
+
+For this to work when a window of admin access is activated (e.g. Task manager), this program must run as administrator (hence PowerToys when applied).
